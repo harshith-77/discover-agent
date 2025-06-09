@@ -5,6 +5,7 @@ langchain-community
 pydantic
 python-dotenv
 langchain-google-genai
+langchain-groq
 duckduckgo-search
 uvicorn
 fastapi

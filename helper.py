@@ -1,10 +1,13 @@
 import os
 from dotenv import load_dotenv
 import logging
+from datetime import datetime
 from typing_extensions import TypedDict
 from typing import Annotated
+from langchain.tools import Tool
 from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from langchain_core.messages import AnyMessage
 from langgraph.graph.message import add_messages
 from langgraph.graph import START, END, StateGraph
@@ -26,13 +29,19 @@ class Helper:
     @staticmethod
     def initialize_tools() -> list:
         print("Inside initialize_tools")
+        datetime_tool = Tool(
+            name='datetime',
+            description='A tool to get the current date and time in realtime.',
+            func=lambda x: datetime.now()
+        )
         duck_duck_tool = DuckDuckGoSearchRun()
-        return [duck_duck_tool]
+        return [datetime_tool, duck_duck_tool]
 
     @staticmethod
     def initialize_llm():
         print("Inside initialize_llm")
-        llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash-exp', google_api_key=os.environ['GEMINI_API_KEY'])
+        # llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash-exp', google_api_key=os.environ['GEMINI_API_KEY'])
+        llm = ChatGroq(model='deepseek-r1-distill-llama-70b', temperature=0.7, api_key=os.environ['GROQ_API_KEY'])
         return llm
 
     def tool_calling_llm_as_node(self, state: State):

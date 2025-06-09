@@ -1,8 +1,32 @@
 # 🔎 Discover Agent
 
-Discover Agent is an AI-powered web search application that utilizes **LangGraph** agents and **DuckDuckGo** as the information retrieval tool. Unlike traditional workflows, this project dynamically decides when, how and whether to use tools during execution, showcasing the power of autonomous **AI agents** in navigating uncertain tasks.
+Discover Agent is an AI-powered web search application that utilizes **LangGraph Agents**, **DuckDuckGo** search, and Groq-hosted **DeepSeek-R1 Distill LLaMA 70B** to dynamically fetch and synthesize information. Unlike traditional workflows, this project dynamically decides when, how and whether to use tools during execution, showcasing the power of autonomous **AI agents** in navigating uncertain tasks.
 
 ![img.png](img.png)
+
+---
+
+## 🚀 Project Overview
+
+This project creates a **Discover Agent** that:
+
+* Accepts natural language queries via a web UI,
+* Uses DeepSeek-R1 LLaMA 70B Distill (hosted on Groq) as the reasoning LLM,
+* Employs tools such as:
+  * DuckDuckGo Search for real-time web lookup, 
+  * Datetime tool to fetch current date/time if needed,
+* Routes the conversation intelligently via LangGraph,
+* Displays real-time, concise answers.
+
+## ✨ Features
+
+* 🌐 Real-time Web Search (DuckDuckGo)
+* 🕓 Current Date & Time Tool
+* 🧭 deepseek-r1-distill-llama-70b via Groq for planning and response generation
+* 🧱 LangGraph Agent with tool invocation and conditional logic
+* 🔄 Stateful and flexible architecture
+* 🖥️ Streamlit-based user interface
+* ⚡ FastAPI backend
 
 ---
 
@@ -10,14 +34,13 @@ Discover Agent is an AI-powered web search application that utilizes **LangGraph
 
 An **AI Agent** is a self-directed system that:
 
+* Interprets complex input (e.g., human questions),
 * Perceives its environment (e.g., user queries and tools),
 * Decides what actions (e.g., tools to use) to take independently,
 * Acts autonomously (e.g., fetches and processes information),
 * And adapts based on feedback or reasoning loops.
 
-LangGraph agents go beyond static workflows by supporting conditional branching, autonomous tool use decisions, and persistent state handling.
-
----
+LangGraph provides a framework to build these agents with dynamic, branching logic and persistent memory, surpassing traditional workflows. LangGraph agents go beyond static workflows by supporting conditional branching, autonomous tool use decisions, and persistent state handling.
 
 ## 🔄 LangGraph vs. LangChain: Why LangGraph?
 
@@ -29,8 +52,6 @@ LangGraph agents go beyond static workflows by supporting conditional branching,
 | Flexibility         | Better for **multi-step, dynamic logic** | Suitable for **simple tool chains** |
 
 **LangGraph** is ideal when you need an agent that decides *when* to use a tool and *how* to proceed after tool output—like in this project.
-
----
 
 ## 🧠 Discover Agent vs. Discover (Workflow)
 
@@ -48,29 +69,6 @@ Here is a [link](https://github.com/harshith-77/discover) to the previous versio
 
 * Slightly more overhead to set up initially
 * Graph logic can be overkill for very simple tasks
-
----
-
-## 🚀 Project Overview
-
-This project creates a **Discover Agent** that:
-
-* Accepts natural language queries via a web UI,
-* Uses Google's Gemini model (via `langchain-google-genai`) to interpret and plan,
-* Leverages the DuckDuckGo tool for web search,
-* Routes the conversation intelligently via LangGraph,
-* Displays real-time, concise answers whenever needed.
-
----
-
-## ✨ Features
-
-* 🌐 DuckDuckGo-powered Web Search
-* 🧭 Gemini-2 LLM for planning and response generation
-* 🧱 LangGraph Agent with tool invocation and conditional logic
-* 🔄 Stateful and flexible architecture
-* 🖥️ Streamlit-based user interface
-* ⚡ FastAPI backend
 
 ---
 
@@ -97,8 +95,6 @@ Create a `.env` file with:
 GEMINI_API_KEY=your_google_genai_key
 ```
 
----
-
 ## ▶️ Run the App
 
 ### Start the FastAPI backend:
@@ -113,18 +109,16 @@ python main.py
 streamlit run main_ui.py
 ```
 
----
-
 ## 🧰 Tech Stack
 
-| Layer       | Technology                |
-| ----------- | ------------------------- |
-| LLM         | Gemini 2.0 Flash (Google) |
-| Agent       | LangGraph                 |
-| Tool        | DuckDuckGoSearchRun       |
-| UI          | Streamlit                 |
-| Backend     | FastAPI + Uvicorn         |
-| Env Manager | python-dotenv             |
+| Layer       | Technology                                 |
+| ----------- |--------------------------------------------|
+| LLM         | DeepSeek-R1 LLaMA 70B Distill via Groq API |
+| Agent       | LangGraph                                  |
+| Tool        | DuckDuckGoSearchRun, Custom Datetime Tool  |
+| UI          | Streamlit                                  |
+| Backend     | FastAPI + Uvicorn                          |
+| Env Manager | python-dotenv                              |
 
 ---
 
@@ -137,8 +131,6 @@ streamlit run main_ui.py
 ├── .env              # API keys (not checked into git)
 ├── requirements.txt  # Python dependencies
 ```
-
----
 
 ## 🗣 Example Usage
 
