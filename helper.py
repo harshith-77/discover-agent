@@ -31,10 +31,10 @@ class Helper:
         print("Inside initialize_tools")
         datetime_tool = Tool(
             name='datetime',
-            description='A tool to get the current date and time in realtime.',
+            description="Use this tool whenever you want to know the current date or time. The input to this tool is nothing, output is today's date and current time.",
             func=lambda x: datetime.now()
         )
-        duck_duck_tool = DuckDuckGoSearchRun()
+        duck_duck_tool = DuckDuckGoSearchRun(description="Useful for when you need to answer questions about current events. Input should be a search query. Make sure you are searching for correct current date or time by using 'datetime' tool.")
         return [datetime_tool, duck_duck_tool]
 
     @staticmethod
