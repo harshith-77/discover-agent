@@ -41,7 +41,8 @@ class Helper:
     def initialize_llm():
         print("Inside initialize_llm")
         # llm = ChatGoogleGenerativeAI(model='gemini-2.0-flash-exp', google_api_key=os.environ['GEMINI_API_KEY'])
-        llm = ChatGroq(model='deepseek-r1-distill-llama-70b', temperature=0.7, api_key=os.environ['GROQ_API_KEY'])
+        # llm = ChatGroq(model='deepseek-r1-distill-llama-70b', temperature=0.7, api_key=os.environ['GROQ_API_KEY'])
+        llm = ChatGroq(model='qwen/qwen3-32b', temperature=0.7, api_key=os.environ['GROQ_API_KEY'])
         return llm
 
     def tool_calling_llm_as_node(self, state: State):
