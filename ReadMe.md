@@ -1,6 +1,6 @@
 # 🔎 Discover Agent
 
-Discover Agent is an AI-powered web search application that utilizes **LangGraph Agents**, **DuckDuckGo** search, and Groq-hosted **DeepSeek-R1 Distill LLaMA 70B** to dynamically fetch and synthesize information. Unlike traditional workflows, this project dynamically decides when, how and whether to use tools during execution, showcasing the power of autonomous **AI agents** in navigating uncertain tasks.
+Discover Agent is an AI-powered web search application that utilizes **LangGraph Agents**, **DuckDuckGo** search, and Groq-hosted **Qwen3-32b** to dynamically fetch and synthesize information. Unlike traditional workflows, this project dynamically decides when, how and whether to use tools during execution, showcasing the power of autonomous **AI agents** in navigating uncertain tasks.
 
 ![img.png](img.png)
 
@@ -11,7 +11,7 @@ Discover Agent is an AI-powered web search application that utilizes **LangGraph
 This project creates a **Discover Agent** that:
 
 * Accepts natural language queries via a web UI,
-* Uses DeepSeek-R1 LLaMA 70B Distill (hosted on Groq) as the reasoning LLM,
+* Uses Qwen3-32b (hosted on Groq) as the reasoning LLM,
 * Employs tools such as:
   * DuckDuckGo Search for real-time web lookup, 
   * Datetime tool to fetch current date/time if needed,
@@ -22,7 +22,7 @@ This project creates a **Discover Agent** that:
 
 * 🌐 Real-time Web Search (DuckDuckGo)
 * 🕓 Current Date & Time Tool
-* 🧭 deepseek-r1-distill-llama-70b via Groq for planning and response generation
+* 🧭 qwen/qwen3-32b via Groq for planning and response generation
 * 🧱 LangGraph Agent with tool invocation and conditional logic
 * 🔄 Stateful and flexible architecture
 * 🖥️ Streamlit-based user interface
@@ -113,7 +113,7 @@ streamlit run main_ui.py
 
 | Layer       | Technology                                 |
 | ----------- |--------------------------------------------|
-| LLM         | DeepSeek-R1 LLaMA 70B Distill via Groq API |
+| LLM         | Qwen3-32b via Groq API |
 | Agent       | LangGraph                                  |
 | Tool        | DuckDuckGoSearchRun, Custom Datetime Tool  |
 | UI          | Streamlit                                  |
