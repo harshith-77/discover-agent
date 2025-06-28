@@ -12,8 +12,9 @@ async def get_answer(request: Request):
     query = body.get('query')
     print("Sending to generate the answer")
     answers = helper.generate(query)
-    for answer in answers:
-        answer.pretty_print()
+    # for answer in answers:
+    #     answer.pretty_print()
+    print(answers)
     print("Sending response")
     return JSONResponse(content={'answer': answers[-1].content}, status_code=200)
 
