@@ -2,7 +2,7 @@ import streamlit as st
 from helper import helper
 import logging
 
-st.title('Discover Agent 🔍')
+st.title('AI Web Search Agent 🔍')
 
 query = st.text_input("Search...")
 if query:
